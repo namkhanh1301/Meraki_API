@@ -1,0 +1,58 @@
+#FOR WITH LIST:
+lst = [1,4,3,2,9,5] #Ko được đặt tên biến là list vì list là tên riêng dùng cho hàm convert type list()
+C1: for i in lst: 
+	print i
+C2: for i in range(len(lst)):
+	print lst[i]
+
+#FOR WITH DICTIONARY:
+prices = {
+  "banana" : 4,
+  "apple"  : 2,
+  "orange" : 1.5,
+  "pear"   : 3,
+}
+stock = {
+  "banana" : 6,
+  "apple"  : 0,
+  "orange" : 32,
+  "pear"   : 15,
+}
+total = 0
+for key in prices:
+  print key
+  print "price: %s" % prices[key]
+  print "stock: %s" % stock[key]
+  #Có thể in 3 thông tin về 1 sp trên cùng một hàng bằng dấu "," : print key, prices[key], stock[key] --> Lưu ý nếu thêm 1 dấu phẩy cuối thì sẽ in liên tục ko xuống hàng
+  total = total + stock[key]*prices[key]
+print total
+
+#FOR WITH STRING:
+word = "Marble"
+for char in word:
+  print char,
+>>>>>>>>The ',' character after our print statement means that our next print statement keeps printing on the same line, will prints out M a r b l e
+
+phrase = "A bird in the hand..."
+for char in phrase:
+  if char == 'A' or char == 'a':
+    print "X",
+  else:
+    print char,
+
+#FOR WITH ENUMERATE:
+choices = ['pizza', 'pasta', 'salad', 'nachos']
+print 'Your choices are:'
+for index, item in enumerate(choices):
+  print index + 1, item
+
+#FOR WITH ZIP:
+list_a = [3, 9, 17, 15, 19]
+list_b = [2, 4, 8, 10, 30, 40, 50, 60, 70, 80, 90]
+
+for a, b in zip(list_a, list_b):
+  # Add your code here!
+  if a > b:
+    print a
+  else:
+    print b

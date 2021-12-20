@@ -1,0 +1,138 @@
+#Challenge 7 : REVERSE
+def reverse(s):
+  temp = s
+  for i in range(0,len(s)):
+    s[i] = temp[len(s)-1-i]
+  return s
+print reverse("Hello World") 
+Báo lỗi: Dòng s[i] = temp[len(s)-1-i]
+--> Sao ko gán được chỗ này ta
+
+Sửa lại - Cách 1:
+def reverse(s):
+  result = ""
+  for i in range(0,len(s)):
+    result += s[len(s)-1-i]
+  return result
+s = "Hello World"
+x = reverse(s)
+print (x)
+
+Sửa lại - Cách 2:
+(Ta phải convert string type --> list type trước, rồi sau khi sắp xếp xong convert lại)
+def reverse(s):
+  s = list(s) #Convert string to list
+  temp =" " * len(s)
+  temp = list(temp)
+  for i in range(0,len(s)):
+    temp[i] = s[i]
+  for i in range(0,len(s)):
+    s[i] = temp[len(s)-1-i]
+  s = "".join(s) #Convert list to string
+  return s
+print (reverse("Hello World"))
+
+
+Lời giải trên academy:
+def reverse(text):
+    word = ""
+    l = len(text) - 1
+    while l >= 0:
+        word = word + text[l]
+        l -= 1
+    return word
+print reverse("Hello World")
+
+
+
+
+#Challenge 8 : ANTI_VOWEL
+def anti_vowel(text):
+    result = ""
+    vowels = "ieaouIEAOU"
+    for char in text:
+          if char not in vowels:
+            result += char
+    return result
+print anti_vowel("hello book")
+
+
+
+
+#Challenge 9: SCRABBLE_SCORE
+score = {"a": 1, "c": 3, "b": 3, "e": 1, "d": 2, "g": 2, 
+         "f": 4, "i": 1, "h": 4, "k": 5, "j": 8, "m": 3, 
+         "l": 1, "o": 1, "n": 1, "q": 10, "p": 3, "s": 1, 
+         "r": 1, "u": 1, "t": 1, "w": 4, "v": 4, "y": 4, 
+         "x": 8, "z": 10}
+def scrabble_score(word):
+  result = 0
+  for char in word:
+    for x in score:
+      if char.lower() == x:
+        result += score[x]
+  return result
+
+
+
+
+
+#Challenge 10: CENSOR
+def censor(text,word):
+  result = ""
+  i = 0
+  for char in rannge(0:len(text)):
+    if text[i:(len(word)+i)] == word:
+      result += ("*") * len(word)
+      char = text[len(word)]
+    else:
+      result += char
+    i += 1
+  return result  --> Code của mình cần sửa lại để thành TH Tổng Quát
+
+Lời giải trên academy:
+def censor(text, word):
+    words = text.split() --> words = ['this', 'hack', 'is', 'wack', 'hack')
+    result = ''
+    stars = '*' * len(word)
+    count = 0
+    for i in words:
+        if i == word:
+            words[count] = stars
+        count += 1
+    result =' '.join(words)
+    return result
+print censor("this hack is wack hack", "hack") --> return "this **** is wack ****
+print censor("this hack is wack hackhhack", "hack") --> return "this **** is wack hackhhack 
+--> lời giải này không phải làm cho TH Tổng Quát (do dùng hàm split nên chỉ check được theo từng cụm cách nhau bởi khoảng cách)
+
+
+
+
+#Challenge 14: REMOVE_DUPLICATES
+def remove_duplicates(x):
+  for i in range(0,len(x)):
+    for j in range(i+1,len(x)):
+      if x[j] == x[i]:
+        del(x[j])
+  return x
+
+Lời giải trên academy:
+def remove_duplicates(inputlist):
+    if inputlist == []:
+        return []
+    
+    # Sort the input list from low to high    
+    inputlist = sorted(inputlist)
+    # Initialize the output list, and give it the first value of the now-sorted input list
+    outputlist = [inputlist[0]]
+
+    # Go through the values of the sorted list and append to the output list
+    # ...any values that are greater than the last value of the output list
+    for i in inputlist:
+        if i > outputlist[-1]:
+            outputlist.append(i)
+        
+    return outputlist
+  
+print remove_duplicates([3,3,2,2,1,1,2,5,6,1,7,3])

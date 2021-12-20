@@ -1,0 +1,19 @@
+id,organizationId,name,productTypes,timeZone
+L_566327653141843049,681155,Lyoli,"['appliance', 'camera', 'switch', 'wireless']",America/New_York
+L_566327653141846927,681155,Vegas Apartment,"['appliance', 'camera', 'switch', 'wireless']",America/Los_Angeles
+L_566327653141856854,681155,DNEAlertsNet,"['appliance', 'camera', 'switch', 'wireless']",US/Pacific
+L_783626335162466320,681155,DevNetLab,"['appliance', 'camera', 'switch', 'wireless']",America/Los_Angeles
+L_783626335162466514,681155,DevNetLab2,"['appliance', 'cellularGateway', 'environmental', 'sensor', 'switch', 'wireless']",America/Los_Angeles
+L_783626335162466515,681155,DevNetLab3,"['appliance', 'cellularGateway', 'environmental', 'sensor', 'switch', 'wireless']",America/Los_Angeles
+N_566327653141899127,681155,Nolan,['wireless'],America/Los_Angeles
+N_566327653141902646,681155,Lyoli MDM,['systemsManager'],America/Los_Angeles
+L_646829496481105433,549236,DevNet Sandbox ALWAYS ON,"['appliance', 'switch', 'wireless']",America/Los_Angeles
+L_646829496481109404,549236,TheTechclinic,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109548,549236,DNSMB3-jxxxxxxatrans.com.ar,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109720,549236,DNENT3-sxxx0gmail.com,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109818,549236,DNENT1-jxxxxxxaudla.edu.ec,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109828,549236,DNSMB5,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109831,549236,DNSMB2-rxxxsaltus.cr,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109832,549236,DNSMB4,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109835,549236,DNENT2-vxxxogmail.com,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles
+L_646829496481109837,549236,DNSMB1-cxxxxxxxnhupkes.nu,"['appliance', 'camera', 'switch', 'systemsManager', 'wireless']",America/Los_Angeles

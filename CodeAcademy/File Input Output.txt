@@ -1,0 +1,9 @@
+f = open ("<name>.<document-type>, "<mode>")
+Vd: f = open ("khanh123.txt", "w")
+--> khanh123.txt in "w" mode (“w” stands for “write”). 
+We stored the result of this operation in a file object, f.
+Doing this opens the file in write-mode and prepares Python to send data into the file.
+"r+" mode will allow you to read and write to it.
+
+f.write()
+f.close()

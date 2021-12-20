@@ -1,0 +1,133 @@
+#VD1: ( Xét từng phần tử của một list bằng for )
+lst = ['a','b','c']
+
+for i in range(0,len(lst)):
+	if lst[i] == 'a':
+		print ('*')
+	else:
+		print (lst[i])
+
+
+#VD2: ( Xét từng phần tử của một string bằng for )
+s = "Hello World"
+temp = s
+result = ""
+for i in range(0,len(s)):
+	print (s[i])		#In từng char trên từng hàng riêng biệt
+  C1:	result += s[i]		#Gom từng phần từ lại rồi in ra màn hình toàn bộ chuỗi
+  C2:	result += "".join(s[i])
+print (result)
+
+
+( Cần lưu ý --Thuật Toán-Operand-- khi viết vòng lặp for tương ứng với các loại biến đầu vào khác nhau phù hợp )	
+#VD3: 
+s = "Hello World"
+result = ""
+for i in range(0,len(s)):	#Nếu viết for kiểu range thì biến i sẽ mang kiểu dữ liệu int 
+	if s[i] == 'e':
+		result += "*"
+	else:
+	C1:     result += s[i]
+	C2:	result += ''.join(s[i])  #Biến i ở đây kiểu int --> giúp đánh số kí tự s[i]
+print (result)
+
+#VD4:
+s = "Hello World"
+result = ""
+vowel = "ueoaiUEAOI"
+for i in s:			#Nếu viết for kiểu này thì biến i sẽ mang kiểu dữ liệu char 
+	if i in vowel:
+		result += "*"
+	else:
+		result += i	#Biến i ở đây kiểu char --> là một kí tự
+print (result)
+
+#VD5:
+x = [1,2,3,4,5]
+def purify(x):
+	result = []		#Biến result ở đây kiểu list 
+	for i in x:
+    		if i % 2 == 0:
+      		result.append(i) 
+	return result  
+#Tại sao không ghi : result += i / result +="".join(i) được mà phải xài hàm append()? 
+--> Có thể ở vd này do khai báo biến result là kiểu list, còn ở các vd trên biến result được khai báo theo kiểu string
+
+
+#VD6: ( So sánh 2 string với vòng lặp for )
+s = "abcd"
+temp = "qxzd"
+x = ""
+for i in range(0,len(s)):
+	if s[i] == temp[i]:
+		x += "*"
+	else:
+		x += ''.join(s[i])
+print(x)
+
+ 	
+#VD7:
+x = [1,2,3,4,5]
+def product(x):
+  result = 1		#biến result được khai báo theo kiểu int
+  for i in x:
+    result = result*i
+  return result
+
+
+#VD8: ( Dùng phương pháp "List Comprehension" để khai báo một list kèm đk )
+
+evens_to_50 = [i for i in range(51) if i % 2 == 0] 
+print evens_to_50
+--> will prints [0, 2, 4, 6, 8, ..., 50]
+
+l = [i ** 2 for i in range(1, 11)]
+--> will prints [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+print l[2:9:2] --> Just print l[2],l[4],l[6],l[8] : [9, 25, 49, 81]
+
+
+
+
+
+#VD9: ( Dùng phương pháp "List Slicing" để in các phần tử trong list ra màn hình kèm đk )
+
+lst = range(1, 11) # List of numbers 1 - 10
+print with [start:end:step]
+print lst[::2]	
+--> will prints [1, 3, 5, 7, 9]
+
+print lst[:]
+--> will print all elements in list
+
+print lst[:3]
+--> will print lst[0], lst[1], lst[2]
+
+print lst[2:5]
+--> will print lst[2], lst[3], lst[4]
+
+print lst[8:]
+--> will print lst[8], lst[9], lst[10]
+
+del(my_list[-2:0])
+
+to_one_hundred = range(101)
+backwards_by_tens = to_one_hundred [::-10]
+print backwards_by_tens
+--> will prints [100, 90, 80, 70, 60, 50, 40, 30, 20, 10, 0]
+
+
+#VD10: ( Dùng phương pháp "Anonymous Function" để lọc một list theo yêu cầu cho trước )
+
+lambda x: x % 3 == 0
+--> Cách khai báo lambda kiểu này sẽ t/h chức năng tương tự với function dưới đây :
+def by_three(x):
+  return x % 3 == 0
+
+my_list = range(16)
+print filter(lambda x: x % 3 == 0, my_list)
+--> will prints[0, 3, 6, 9, 12, 15] 
+
+garbled = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
+message = filter(lambda x: x!="X", garbled)
+print message
+--> will prints "I am another secret message!"

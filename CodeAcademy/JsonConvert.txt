@@ -1,0 +1,24 @@
+json.dumps() method can convert a Python object into a JSON string.
+	Syntax: json.dumps(dict, indent)
+	Parameters: 	+dictionary – name of dictionary which should be converted 			to JSON object. 
+ 			+indent – defines the number of units for indentation 
+
+json.dump() method can be used for writing to JSON file.
+	Syntax: json.dump(dict, file_pointer)
+	Parameters: 	+dictionary – name of dictionary which should be converted 			to JSON object. 
+ 			+file pointer – pointer of the file opened in write or 					append mode. 	
+
+Python		JSON Equivalent
+dict		object
+list, tuple	array
+str		string
+int, float	number
+True		true
+False		false
+None		null
+
+Tham khảo tại:
+https://docs.python.org/3/library/json.html
+
+response.json() ?
+Phương thức json () của giao diện Response nhận một luồng data response vào và đọc nó cho đến khi hoàn thành. Nó sẽ phân tích cú pháp văn bản nội dung dưới dạng JSON. Lưu ý rằng mặc dù phương thức được đặt tên là json (), kết quả không phải là JSON mà thay vào đó là kết quả của việc lấy JSON làm đầu vào và phân tích cú pháp nó để tạo ra một đối tượng JavaScript.
