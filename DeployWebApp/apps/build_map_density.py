@@ -16,7 +16,7 @@ df = pd.read_csv(DATA_PATH.joinpath("data_build_map_density.csv"))
 # app = dash.Dash(__name__)
 layout = html.Div([
 
-    html.H1('Information about your network with Map Density', style={"textAlign": "center"}),
+    html.H1('Information about your network with Map Density', style={'textAlign' : 'center', 'font-weight' : 'bold'}),
 
     html.Div(
        dcc.Graph(id = 'map_density')

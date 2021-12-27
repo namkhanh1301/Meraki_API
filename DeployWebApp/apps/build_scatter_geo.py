@@ -16,7 +16,7 @@ df = pd.read_csv(DATA_PATH.joinpath("data_build_scatter_geo.csv"))
 # app = dash.Dash(__name__)
 layout = html.Div([
 
-    html.H1('Information about your network with Scatter Geo', style={'textAlign': 'center'}),
+    html.H1('Information about your network with Scatter Geo', style={'textAlign': 'center', 'font-weight': 'bold'}),
 
     html.Div(
         dcc.Graph(id = 'scatter_geo')

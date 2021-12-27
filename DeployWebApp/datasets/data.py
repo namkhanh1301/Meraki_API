@@ -40,14 +40,13 @@ def data_build_pie():
                             'organizationId' : i['organizationId'], 
                             'name' : i['name'], 
                             'productTypes' : i['productTypes'], 
-                            'productTypes' : i['productTypes'],
                             'timeZone' : i['timeZone']})
-
+    
     print ('Write data to csv file successfully!!!')
 
 def data_build_bar():
     with open('data_build_bar.csv', 'w', newline ='') as outfile:
-        fieldnames = ['OG_id', 'ProductType', 'Number of NWs supported']
+        fieldnames = ['OG_id', 'ProductType', 'Number of supported NWs']
         c = csv.DictWriter(outfile, fieldnames=fieldnames)
         c.writeheader()
 
@@ -65,12 +64,12 @@ def data_build_bar():
                     if j == "sensor":
                         n_ss+=1
             c.writerow({'OG_id' : i['organizationId'], 
-                        'ProductType' : 'switch',
-                        'Number of NWs supported' : n_sw})
-            c.writerow({ 'ProductType' : 'wireless',
-                        'Number of NWs supported' : n_wl})
-            c.writerow({'ProductType' : 'sensor',
-                        'Number of NWs supported' : n_ss})
+                        'ProductType' : 'SWITCH',
+                        'Number of supported NWs' : n_sw})
+            c.writerow({ 'ProductType' : 'WIRELESS',
+                        'Number of supported NWs' : n_wl})
+            c.writerow({'ProductType' : 'SENSOR',
+                        'Number of supported NWs' : n_ss})
 
     print ('Write data to csv file successfully!!!')
 
@@ -96,7 +95,7 @@ def data_build_map_density():
 
 
 def main():
-    result = data_build_map_density()
+    result = data_build_bar()
     print(result)
 
 

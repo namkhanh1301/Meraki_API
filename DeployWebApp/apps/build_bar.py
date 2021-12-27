@@ -16,14 +16,14 @@ df = pd.read_csv(DATA_PATH.joinpath("data_build_bar.csv"))
 # app = dash.Dash(__name__)
 layout = html.Div([
 
-    html.H1('Information about your network with Bar Chart', style={"textAlign": "center"}),
+    html.H1('Information about your network with Bar Chart', style={'textAlign' : 'center', 'font_weight' : 'bold'}),
 
     html.Div(
         dcc.Graph(id='bar_chart')
     ),
 
     html.Div([
-        html.Label(['Choose OG id:'],style={'font-weight': 'bold', 'text-align': 'center'}),
+        html.Label(['Choose OG to show:'],style={'font-weight': 'bold'}),
         dcc.Dropdown(id='my_dropdown',
             options=[
                 {'label': x, 'value': x} for x in df['OG_id'].unique()
@@ -41,7 +41,7 @@ layout = html.Div([
 def update_bar(OG_id):
     filt = (df['OG_id'] == OG_id)
     dff = df[filt]
-    fig = px.bar(data_frame = dff, x = dff['ProductType'], y = dff['Number of NWs supported'], color = dff['ProductType'])
+    fig = px.bar(data_frame = dff, x = dff['ProductType'], y = dff['Number of supported NWs'], color = dff['ProductType'])
     return fig
 
 # if __name__ == '__main__':

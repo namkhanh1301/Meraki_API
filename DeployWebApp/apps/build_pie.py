@@ -17,7 +17,7 @@ df = pd.read_csv(DATA_PATH.joinpath("data_build_pie.csv"))
 
 layout = html.Div([
 
-    html.H1('Information about your network with Pie Graph', style={"textAlign": "center"}),
+    html.H1('Information about your network with Pie Graph', style={'textAlign' : 'center', 'font-weight' : 'bold'}),
 
     html.Div([
         dcc.Graph(id='pie_graph')
@@ -25,18 +25,17 @@ layout = html.Div([
 
     html.Div([
 
-        html.Label(['Choose column:'],style={'font-weight': 'bold', "text-align": "center"}),
+        html.Label(['Choose information to show:'],style={'font-weight': 'bold'}),
 
         dcc.Dropdown(id='my_dropdown',
             options=[
-                {'label': 'id', 'value': 'id'},
-                {'label': 'organizationId', 'value': 'organizationId'},
-                {'label': 'name', 'value': 'name'},
-                {'label': 'productTypes', 'value': 'productTypes'},
-                {'label': 'timeZone', 'value': 'timeZone'}
+                {'label': 'OG_ID', 'value': 'organizationId'},
+                {'label': 'Name of all networks', 'value': 'name'},
+                {'label': 'Product types', 'value': 'productTypes'},
+                {'label': 'Timezone', 'value': 'timeZone'}
             ],
             optionHeight=35,                    #height/space between dropdown options
-            value='name',                       #dropdown value selected automatically when page loads
+            value='OG_ID',                      #dropdown value selected automatically when page loads
             disabled=False,                     #disable dropdown value selection
             multi=False,                        #allow multiple dropdown values to be selected
             searchable=True,                    #allow user-searching of dropdown values
