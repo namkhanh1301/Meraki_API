@@ -30,12 +30,11 @@ layout = html.Div([
         dcc.Dropdown(id='my_dropdown',
             options=[
                 {'label': 'OG_ID', 'value': 'organizationId'},
-                {'label': 'Name of all networks', 'value': 'name'},
                 {'label': 'Product types', 'value': 'productTypes'},
                 {'label': 'Timezone', 'value': 'timeZone'}
             ],
             optionHeight=35,                    #height/space between dropdown options
-            value='OG_ID',                      #dropdown value selected automatically when page loads
+            value='organizationId',             #dropdown value selected automatically when page loads
             disabled=False,                     #disable dropdown value selection
             multi=False,                        #allow multiple dropdown values to be selected
             searchable=True,                    #allow user-searching of dropdown values
@@ -57,8 +56,8 @@ layout = html.Div([
     Input(component_id='my_dropdown', component_property='value')
 )
 
-def update_pie(column_chosen):
-    fig = px.pie(df,names=column_chosen)
+def update_pie(value):
+    fig = px.pie(df,names=value)
     fig.update_traces(textinfo='percent+label')
     fig.update_layout(title={'font':{'size':28},'x':0.5,'xanchor':'center'})
     return fig

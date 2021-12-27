@@ -63,13 +63,9 @@ def data_build_bar():
                         n_wl+=1
                     if j == "sensor":
                         n_ss+=1
-            c.writerow({'OG_id' : i['organizationId'], 
-                        'ProductType' : 'SWITCH',
-                        'Number of supported NWs' : n_sw})
-            c.writerow({ 'ProductType' : 'WIRELESS',
-                        'Number of supported NWs' : n_wl})
-            c.writerow({'ProductType' : 'SENSOR',
-                        'Number of supported NWs' : n_ss})
+            c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'SWITCH', 'Number of supported NWs' : n_sw})
+            c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'WIRELESS', 'Number of supported NWs' : n_wl})
+            c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'SENSOR', 'Number of supported NWs' : n_ss})
 
     print ('Write data to csv file successfully!!!')
 
