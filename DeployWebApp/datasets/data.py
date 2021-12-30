@@ -54,7 +54,7 @@ def data_build_bar():
         number_og = int(input('Please enter number of OGs you want to take NW_data from: '))
         for i in range(number_og):
             nw = json.loads(meraki_get.GET_NW_IN_OG())
-            n_sw = n_wl = n_ss=0
+            n_sw = n_wl = n_ss = n_cm = n_sm = n_ap = n_cg = 0
             for i in nw:
                 for j in i["productTypes"]:
                     if j == "switch": 
@@ -63,9 +63,21 @@ def data_build_bar():
                         n_wl+=1
                     if j == "sensor":
                         n_ss+=1
+                    if j == "camera":
+                        n_cm+=1
+                    if j == "appliance":
+                        n_ap+=1
+                    if j == "systemsManager":
+                        n_sm+=1
+                    if j == "cellularGateway":
+                        n_cg+=1
             c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'SWITCH', 'Number of supported NWs' : n_sw})
             c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'WIRELESS', 'Number of supported NWs' : n_wl})
             c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'SENSOR', 'Number of supported NWs' : n_ss})
+            c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'CAMERA', 'Number of supported NWs' : n_cm})
+            c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'APPLIANCE', 'Number of supported NWs' : n_ap})
+            c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'SYSMANAGER', 'Number of supported NWs' : n_sm})
+            c.writerow({'OG_id' : i['organizationId'], 'ProductType' : 'CELLGATE', 'Number of supported NWs' : n_cg})
 
     print ('Write data to csv file successfully!!!')
 

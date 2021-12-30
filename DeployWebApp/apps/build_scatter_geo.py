@@ -1,8 +1,8 @@
-# import dash
+import dash
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
-from app import app
+# from app import app
 import pandas as pd 
 import pathlib
 import plotly.express as px  
@@ -13,22 +13,22 @@ DATA_PATH = PATH.joinpath("../datasets").resolve()
 
 df = pd.read_csv(DATA_PATH.joinpath("data_build_scatter_geo.csv"))
 
-# app = dash.Dash(__name__)
-layout = html.Div([
+app = dash.Dash(__name__)
+app.layout = html.Div([
 
-    html.H1('Information about your network with Scatter Geo', style={'textAlign': 'center', 'font-weight': 'bold'}),
+    html.H2('Information about your network with Scatter Geo', style={'textAlign': 'center', 'font-weight': 'bold'}),
 
     html.Div(
         dcc.Graph(id = 'scatter_geo')
     ),
 
     html.Div([
-        html.Label(['Choose your OG you want to show all NW locations:'], style={'font-weight': 'bold'}),
+        html.Label(['Choose NW you want to show location:'], style={'font-weight': 'bold'}),
         dcc.RadioItems(id = 'my_radioitems',
             options = [
-                {'label': x, 'value': x} for x in df['organizationId'].unique()
+                {'label': x, 'value': x} for x in df['name'].unique()
             ],
-            value = df['organizationId'][0]
+            value = df['name'][0]
         )
     ])
 ])
@@ -38,8 +38,8 @@ layout = html.Div([
     Input(component_id='my_radioitems', component_property='value')
 )
 
-def update_scatter_geo(OG_id):
-    filt = (df['organizationId'] == OG_id)
+def update_scatter_geo(name):
+    filt = (df['name'] == name)
     dff = df[filt] 
     fig = px.scatter_geo(dff,
                         locations = 'location',
@@ -51,8 +51,8 @@ def update_scatter_geo(OG_id):
                         )
     return fig
 
-# if __name__ == '__main__':
-#     app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
 
 

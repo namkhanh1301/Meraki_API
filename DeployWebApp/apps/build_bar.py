@@ -1,8 +1,8 @@
-# import dash
+import dash
 from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
-from app import app
+# from app import app
 import plotly.express as px
 import pathlib
 import pandas as pd
@@ -13,10 +13,10 @@ DATA_PATH = PATH.joinpath("../datasets").resolve()
 
 df = pd.read_csv(DATA_PATH.joinpath("data_build_bar.csv"))
 
-# app = dash.Dash(__name__)
-layout = html.Div([
+app = dash.Dash(__name__)
+app.layout = html.Div([
 
-    html.H1('Information about your network with Bar Chart', style={'textAlign' : 'center', 'font_weight' : 'bold'}),
+    html.H2('Information about your network with Bar Chart', style={'textAlign' : 'center', 'font_weight' : 'bold'}),
 
     html.Div(
         dcc.Graph(id='bar_chart')
@@ -41,11 +41,12 @@ layout = html.Div([
 def update_bar(OG_id):
     filt = (df['OG_id'] == OG_id)
     dff = df[filt]
-    fig = px.bar(data_frame = dff, x = dff['ProductType'], y = dff['Number of supported NWs'], color = dff['ProductType'])
+    fig = px.bar(data_frame = dff, x = dff['ProductType'], y = dff['Number of supported NWs'], color = dff['Number of supported NWs'])
+    # fig.update_layout(showlegend = False)
     return fig
 
-# if __name__ == '__main__':
-#     app.run_server(debug=True)
+if __name__ == '__main__':
+    app.run_server(debug=True)
 
 
 

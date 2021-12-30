@@ -10,7 +10,7 @@ def GET_OG():
    
 def GET_OG_ID():
     og_list = json.loads(GET_OG())
-    name = input("Your organization name you want to get id / access to: ")
+    name = input("Your organization name you want to get info / access to: ")
     for og in og_list:
         if og["name"] == name:
             og_id = og["id"]
@@ -24,7 +24,7 @@ def GET_NW_IN_OG():
 
 def GET_NW_ID():
     nw_list = json.loads(GET_NW_IN_OG())
-    name = input("Your network name you want to get id / access to: ")
+    name = input("Your network name you want to get info / access to: ")
     for nw in nw_list:
         if nw["name"] == name:
             nw_id = nw["id"]
